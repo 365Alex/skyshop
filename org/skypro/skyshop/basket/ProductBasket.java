@@ -24,6 +24,8 @@ public class ProductBasket {
         }
     }
 
+
+
     public int getTotalPrice(){
         int total = 0;
         for (int i = 0; i < size; i++) {
@@ -38,10 +40,8 @@ public class ProductBasket {
             if (size == 0){
                 System.out.println("В корзине пусто");
             }
-        for (Product productBasket: products) {
-            if (productBasket != null){
-                System.out.println(productBasket.getName() + ": " + productBasket.getPrice());
-            }
+        for (int i = 0; i < size; i++) {
+            System.out.println(products[i].toString());
 
         }
         System.out.println("Итого: " + getTotalPrice());
