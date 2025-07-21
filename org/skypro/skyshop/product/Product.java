@@ -16,6 +16,8 @@ public abstract class  Product {
 
     public abstract String toString();
 
-    public abstract boolean isSpecial();
+    public boolean isSpecial(){
+        return false;
+    }
 
 }

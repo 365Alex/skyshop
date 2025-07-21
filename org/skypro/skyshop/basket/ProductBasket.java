@@ -17,9 +17,8 @@ public class ProductBasket {
     public void addProduct(Product product) {
 
         if (size < products.length) {
-            products[size] = product;
-            size++;
-        } else  if (size > products.length){
+            products[size++] = product;
+        } else  {
             System.out.println("Корзина заполнена");
         }
     }
@@ -39,12 +38,20 @@ public class ProductBasket {
     public void printProductBasket(){
             if (size == 0){
                 System.out.println("В корзине пусто");
+                return;
             }
         for (int i = 0; i < size; i++) {
             System.out.println(products[i].toString());
-
         }
+        int specialCount = 0;
+                for (int i = 0; i < size; i++) {
+            if (products[i].isSpecial()){
+                specialCount ++;
+            }
+        }
+
         System.out.println("Итого: " + getTotalPrice());
+        System.out.println("Количество специальных товаров: " + specialCount);
     }
 
     public boolean hasProduct(String name) {
