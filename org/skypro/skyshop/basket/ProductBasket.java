@@ -56,7 +56,7 @@ public class ProductBasket {
 
     public boolean hasProduct(String name) {
         for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(name)) {
+            if (product.getNameProduct().equalsIgnoreCase(name)) {
                 return true;
             }
         }

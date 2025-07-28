@@ -19,9 +19,10 @@ public class DiscountedProduct extends Product {
         return basePrice - (basePrice * percent /100);
     }
 
+
     @Override
     public String toString(){
-        return "Продукт: " + this.getName() +  " стоимость без скидки: " + this.basePrice + " руб." +
+        return "Продукт: " + this.getNameProduct() +  " стоимость без скидки: " + this.basePrice + " руб." +
                 " скидка: " + this.percent + "%" + " цена со скидкой: " + this.getPrice() + " руб.";
     }
 
