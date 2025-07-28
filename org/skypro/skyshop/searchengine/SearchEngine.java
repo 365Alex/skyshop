@@ -11,6 +11,7 @@ public class SearchEngine {
         searchableItems = new Searchable[size];
     }
 
+
     public void add(Searchable searchable) {
         if (count < searchableItems.length) {
             searchableItems[count++] = searchable;

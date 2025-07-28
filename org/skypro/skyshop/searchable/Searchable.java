@@ -9,5 +9,6 @@ public interface Searchable {
     default String getStringRepresentation(){
         return "Name";
     }
+
     String getName();
 }

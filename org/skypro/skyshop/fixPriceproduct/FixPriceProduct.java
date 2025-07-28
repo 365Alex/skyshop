@@ -11,6 +11,7 @@ public class FixPriceProduct extends Product {
     @Override
     public int getPrice(){
         return fixPrice;
+
     }
 
     @Override
