@@ -34,6 +34,8 @@ public class App {
         System.out.println(("Есть ли молоко в корзине? " + productBasket.hasProduct("молоко")));
 
         productBasket.clear();
+        productBasket.printProductBasket();
+
         System.out.println();
 
         System.out.println("Корзина №2");
