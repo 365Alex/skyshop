@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
+        System.out.println("Корзина №1");
         ProductBasket productBasket = new ProductBasket(5);
         DiscountedProduct cheese = new DiscountedProduct("сыр", 85, 10);
         FixPriceProduct productTwo = new FixPriceProduct("Печенье");
@@ -33,8 +34,9 @@ public class App {
         System.out.println(("Есть ли молоко в корзине? " + productBasket.hasProduct("молоко")));
 
         productBasket.clear();
-        productBasket.printProductBasket();
+        System.out.println();
 
+        System.out.println("Корзина №2");
         ProductBasket productBasketOne = new ProductBasket(5);
         SimpleProduct bread = new SimpleProduct("хлеб", 30);
         SimpleProduct tea = new SimpleProduct("чай чёрный", 75);

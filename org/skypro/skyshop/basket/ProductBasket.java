@@ -66,12 +66,9 @@ public class ProductBasket {
     }
 
     public void clear() {
-        Arrays.fill(products, null);
         for (int i = 0; i < products.length; i++) {
-            if (products[i] == null) {
-
-            }
-
+            products[i] = null;
         }
+        System.out.println("Корзина очищена");
     }
 }
