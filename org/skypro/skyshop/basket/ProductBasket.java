@@ -36,6 +36,7 @@ public class ProductBasket {
 
 
     public void printProductBasket(){
+        
             if (size == 0){
                 System.out.println("В корзине пусто");
                 return;
@@ -66,5 +67,11 @@ public class ProductBasket {
 
     public void clear() {
         Arrays.fill(products, null);
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
+
+            }
+
+        }
     }
 }

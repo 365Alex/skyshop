@@ -33,7 +33,7 @@ public class App {
         System.out.println(("Есть ли молоко в корзине? " + productBasket.hasProduct("молоко")));
 
         productBasket.clear();
-
+        productBasket.printProductBasket();
 
         ProductBasket productBasketOne = new ProductBasket(5);
         SimpleProduct bread = new SimpleProduct("хлеб", 30);

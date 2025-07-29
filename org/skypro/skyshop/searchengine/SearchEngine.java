@@ -24,7 +24,7 @@ public class SearchEngine {
 
         for (Searchable item : searchableItems) {
             if (item != null && item.searchTerm().contains(term)) {
-                if (resultCount < 5) {
+                if (resultCount < results.length) {
                     results[resultCount++] = item;
                 } else {
                     break;

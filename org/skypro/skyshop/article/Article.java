@@ -4,25 +4,24 @@ import org.skypro.skyshop.searchable.Searchable;
 
 public class Article implements Searchable {
 
-    private final String articleTitle;
-    private final String textOfTheArticle;
+    private final String title;
+    private final String text;
 
-    public Article (String articleTitle, String textOfTheArticle){
-        this.articleTitle = articleTitle;
-        this.textOfTheArticle = textOfTheArticle;
+    public Article (String articleTitle, String text){
+        this.title = articleTitle;
+        this.text = text;
     }
 
-    public String getArticleTitle(){
-        return articleTitle;
+    public String getTitle(){
+        return title;
     }
 
     public String getTextOfTheArticle(){
-        return textOfTheArticle;
+        return text;
     }
 
     public String toString(){
-        return "Название статьи: " + articleTitle +
-                " Текст статьи: " + textOfTheArticle;
+        return "Название статьи: " + title + "\n" + " Текст статьи: " + text;
     }
 
 
@@ -38,10 +37,7 @@ public class Article implements Searchable {
 
     @Override
     public String getName(){
-        return articleTitle;
+        return title;
     }
-    @Override
-    public String getStringRepresentation(){
-        return getName() + " " + getContent();
-    }
+
 }

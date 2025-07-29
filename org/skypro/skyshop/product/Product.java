@@ -25,7 +25,7 @@ public abstract class  Product implements Searchable {
 
     @Override
     public String searchTerm(){
-        return "Имя продукта: " + getNameProduct();
+        return getNameProduct();
     }
 
     @Override
@@ -34,10 +34,7 @@ public abstract class  Product implements Searchable {
     }
 
 
-    @Override
-    public String getStringRepresentation(){
-        return getNameProduct() + " " + getContent();
-    }
+
 
     @Override
     public String getName() {
