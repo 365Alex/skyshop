@@ -7,11 +7,13 @@ public abstract class  Product implements Searchable {
 
     public Product(String name){
     this.name = name;
+        if (name == null || name.isBlank()){
+            throw new IllegalArgumentException("некорректное название продукта");
+        }
 
     }
 
     public String getNameProduct(){
-
         return this.name;
     }
 
@@ -33,11 +35,12 @@ public abstract class  Product implements Searchable {
         return "PRODUCT";
     }
 
-
-
-
     @Override
     public String getName() {
+        return name;
+    }
+
+    public String isBlank(){
         return name;
     }
 

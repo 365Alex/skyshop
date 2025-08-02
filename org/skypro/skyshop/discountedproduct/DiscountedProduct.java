@@ -10,6 +10,12 @@ public class DiscountedProduct extends Product {
         super(name);
         this.basePrice = basPrice;
         this.percent = percent;
+        if (basePrice <= 0){
+            throw new IllegalArgumentException("цена не должна быть меньше или равна 0");
+        }
+        if (percent < 0 || percent > 100){
+            throw new IllegalArgumentException("процент должен быть от 0 до 100");
+        }
 
     }
 
@@ -31,4 +37,6 @@ public class DiscountedProduct extends Product {
     public boolean isSpecial(){
         return true;
     }
+
+
 }

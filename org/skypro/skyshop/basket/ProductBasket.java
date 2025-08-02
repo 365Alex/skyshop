@@ -52,16 +52,14 @@ public class ProductBasket {
                 specialCount ++;
             }
         }
-        for (int i = 0; i < products.length; i++) {
-            if (products[i] == null){
-                System.out.println("Корзина очищена");
-            }
-
-        }
 
         System.out.println("Итого: " + getTotalPrice());
         System.out.println("Количество специальных товаров: " + specialCount);
+
+
     }
+
+
 
     public boolean hasProduct(String name) {
         for (Product product : products) {
@@ -75,6 +73,11 @@ public class ProductBasket {
     public void clear() {
         for (int i = 0; i < products.length; i++) {
             products[i] = null;
+        }
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null){
+                size = 0;
+            }
         }
     }
 }

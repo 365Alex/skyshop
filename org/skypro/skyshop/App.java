@@ -3,15 +3,18 @@ import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.discountedproduct.DiscountedProduct;
 import org.skypro.skyshop.fixPriceproduct.FixPriceProduct;
 import org.skypro.skyshop.basket.ProductBasket;
+import org.skypro.skyshop.searchengine.BestResultNotFound;
 import org.skypro.skyshop.searchengine.SearchEngine;
 import org.skypro.skyshop.simpleproduct.SimpleProduct;
 
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.Arrays;
 
 
 
 public class App {
     public static void main(String[] args) {
+
         System.out.println("Корзина №1");
         ProductBasket productBasket = new ProductBasket(5);
         DiscountedProduct cheese = new DiscountedProduct("сыр", 85, 10);
@@ -40,30 +43,55 @@ public class App {
 
         System.out.println("Корзина №2");
         ProductBasket productBasketOne = new ProductBasket(5);
-        SimpleProduct bread = new SimpleProduct("хлеб", 30);
-        SimpleProduct tea = new SimpleProduct("чай чёрный", 75);
-        DiscountedProduct candies = new DiscountedProduct("чай с бергамотом", 89, 10);
-        DiscountedProduct coffee  = new DiscountedProduct("Кофе", 275, 20);
+        SimpleProduct correct = null;
 
-        productBasketOne.addProduct(bread);
-        productBasketOne.addProduct(tea);
-        productBasketOne.addProduct(candies);
-        productBasketOne.addProduct(coffee);
-        productBasketOne.printProductBasket();
+        try {
+            correct = new SimpleProduct("", 0);
+        } catch (IllegalArgumentException e){
+            System.out.println("ошибка создания SimpleProduct");
+        }
 
-        SearchEngine searchEngine = new SearchEngine(5);
+        SimpleProduct tea = null;
 
-        searchEngine.add(bread);
-        searchEngine.add(tea);
+        try {
+            tea  = new SimpleProduct("чай", 35);
+
+        } catch (IllegalArgumentException e){
+            System.out.println("ошибка создания SimpleProduct " + e.getMessage());
+        }
+        if (tea != null){
+            System.out.println("Продукт успешно создан: " + tea.getName());
+        }
+            DiscountedProduct candies = new DiscountedProduct("чай с бергамотом", 89, 10);
+            DiscountedProduct coffee = new DiscountedProduct("кофе", 198, 10);
+
+            productBasketOne.addProduct(tea);
+            productBasketOne.addProduct(candies);
+            productBasketOne.addProduct(coffee);
+            productBasketOne.printProductBasket();
+
+
+
+            SearchEngine searchEngine = new SearchEngine(5);
         searchEngine.add(candies);
+        searchEngine.add(tea);
+        try {
+            searchEngine.bestFoundMatch("хлеб");
+        } catch (BestResultNotFound e) {
+            System.out.println("не найдено" + e.getMessage());
+        }
 
-        Article articleOne = new Article("Новинки автомобилей", "Топ 5 автомобилей 2025");
-        Article articleTwo = new Article("Рецепт вкусных блинчиков", "Топ 10 рецептов блинчиков");
 
-        searchEngine.add(articleOne);
-        searchEngine.add(articleTwo);
+            Article articleOne = new Article("Новинки автомобилей", "Топ 5 автомобилей 2025");
+            Article articleTwo = new Article("Рецепт вкусных блинчиков", "Топ 10 рецептов блинчиков");
 
-        System.out.println(Arrays.toString(searchEngine.search("чай")));
-        System.out.println(Arrays.toString(searchEngine.search("Новинки")));
+            searchEngine.add(articleOne);
+            searchEngine.add(articleTwo);
+
+            System.out.println(Arrays.toString(searchEngine.search("Новинки")));
+
+
+
+
     }
 }
