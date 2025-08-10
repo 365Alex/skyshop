@@ -38,7 +38,6 @@ public abstract class  Product implements Searchable {
     @Override
     public String getName() {
         return name;
-
     }
 
     public String isBlank(){
