@@ -12,6 +12,8 @@ public class Article implements Searchable {
         this.text = text;
     }
 
+
+
     public String getTitle(){
         return title;
     }

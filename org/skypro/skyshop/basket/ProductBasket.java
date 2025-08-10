@@ -12,6 +12,7 @@ public class ProductBasket {
     public ProductBasket(int basket) {
         products = new Product[basket];
         size = 0;
+
     }
 
 
